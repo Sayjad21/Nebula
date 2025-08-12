@@ -1,126 +1,99 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nebula — Voice-powered AI Sidekick</title>
- 
-</head>
-<body>
-  <main class="container" role="main">
-    <header>
-      <div class="logo">NB</div>
-      <div>
-        <h1>Nebula — Voice-powered AI Sidekick</h1>
-        <p class="lead">A witty, realtime voice assistant powered by Groq (STT), ElevenLabs (TTS), and Gradio (UI).</p>
-      </div>
-      <div class="badges">
-        <div class="badge">Python</div>
-        <div class="badge">Groq</div>
-        <div class="badge">ElevenLabs</div>
-        <div class="badge">Gradio</div>
-      </div>
-    </header>
+# Dora AI Assistant
 
-    <section class="grid" aria-labelledby="about">
-      <article class="card" id="about">
-        <h2 style="margin-top:0;">What is Nebula?</h2>
-        <p class="muted" style="color:var(--muted); margin:6px 0 12px;">
-          Nebula listens to your voice, transcribes it with <strong>Groq</strong>, replies via an AI agent, and speaks back using <strong>ElevenLabs</strong>. The interface is built with <strong>Gradio</strong>, featuring a live webcam and chat pane for an immersive, realtime experience.
-        </p>
+Dora is a multimodal AI assistant that supports:
+- Text-to-speech (TTS) using ElevenLabs and Google gTTS
+- Speech-to-text (STT) using Groq
+- Image analysis using Groq Vision models
+- Webcam capture
+- Integration with LangChain and Gemini
 
-        <h3>Main highlights</h3>
-        <ul class="feature-list" aria-label="features">
-          <li><strong>Speech-to-text:</strong> Groq — whisper-large-v3 (low latency)</li>
-          <li><strong>Text-to-speech:</strong> ElevenLabs — natural, multi-lingual voices</li>
-          <li><strong>UI:</strong> Gradio with webcam feed + chat window</li>
-          <li><strong>Playback:</strong> MP3 via default system player or ffplay/ffmpeg fallback</li>
-        </ul>
-      </article>
+## Features
 
-      <aside class="card" aria-labelledby="tech">
-        <h3 id="tech">Tech Stack</h3>
-        <p class="muted">Clean, focused stack for fast prototyping and great UX.</p>
-        <ul style="padding-left:14px; margin-top:8px; color:var(--muted);">
-          <li><strong>Python</strong> — core logic</li>
-          <li><strong>Groq API</strong> — speech-to-text (whisper-large-v3)</li>
-          <li><strong>ElevenLabs</strong> — text-to-speech</li>
-          <li><strong>Gradio</strong> — frontend UI with webcam</li>
-          <li><strong>FFmpeg</strong> — audio conversion & playback</li>
-        </ul>
+- **Text-to-Speech:** Converts text to speech using ElevenLabs or Google gTTS.
+- **Speech-to-Text:** Transcribes audio using Groq's API.
+- **Image Analysis:** Captures webcam images and analyzes them with Groq Vision models.
+- **Web UI:** Gradio-based interface for easy interaction.
 
-        <h4 style="margin-top:12px;">Quick stats</h4>
-        <p><span class="highlight">Realtime</span> • <span class="highlight">Low latency</span> • <span class="highlight">Multimodal</span></p>
-      </aside>
-    </section>
+## Setup
 
-    <section class="card" aria-labelledby="install" style="margin-top:18px;">
-      <h2 id="install">Installation</h2>
-      <ol style="margin:10px 0 0 18px; color:var(--muted);">
-        <li>Clone repo:
-          <pre><code>git clone https://github.com/yourusername/nebula.git
-cd nebula</code></pre>
-        </li>
-        <li>Install Python dependencies:
-          <pre><code>pip install -r requirements.txt</code></pre>
-        </li>
-        <li>Install FFmpeg:
-          <pre><code>Windows: download from ffmpeg.org and add to PATH
-macOS: brew install ffmpeg
-Linux: sudo apt install ffmpeg</code></pre>
-        </li>
-        <li>Create <code>config.py</code> in the project root:
-          <pre><code>groq_api_key = "YOUR_GROQ_API_KEY"
-elevenlabs_api_key = "YOUR_ELEVENLABS_API_KEY"</code></pre>
-        </li>
-      </ol>
-    </section>
+### 1. Clone the repository
 
-    <section class="card" aria-labelledby="usage" style="margin-top:18px;">
-      <h2 id="usage">Usage</h2>
-      <p style="color:var(--muted); margin-top:6px;">Run Nebula locally and open the Gradio UI to start chatting by voice.</p>
+```sh
+git clone https://github.com/yourusername/dora.git
+cd dora
+```
 
-      <pre><code>python nebula.py</code></pre>
+### 2. Install dependencies
 
-      <h4 style="margin-top:8px;">UI actions</h4>
-      <ul style="color:var(--muted);">
-        <li><strong>Start camera</strong> — enable webcam feed</li>
-        <li><strong>Speak</strong> — Nebula listens and transcribes</li>
-        <li><strong>Chat</strong> — text chat shown on the right panel</li>
-        <li><strong>Stop</strong> — say “goodbye” or close the UI</li>
-      </ul>
-    </section>
+```sh
+pip install -r requirements.txt
+```
 
-    <section class="card" aria-labelledby="examples" style="margin-top:18px;">
-      <h2 id="examples">Examples</h2>
-      <p style="color:var(--muted); margin-bottom:10px;">Example commands and behavior.</p>
+You also need [FFmpeg](https://ffmpeg.org/download.html) installed and available at:
+```
+C:\ffmpeg-2025-08-07-git-fa458c7243-full_build\bin
+```
+Or update the paths in the code to match your FFmpeg installation.
 
-      <pre><code>// casual
-You: "Hey Nebula, tell me a joke."
-Nebula: (speaks) "Why did the coder get kicked out of school? Because he kept breaking the class!"
+### 3. Configure API Keys
 
-// informational
-You: "Nebula, summarize this article."
-Nebula: (responds with a short summary, then reads it aloud)</code></pre>
-    </section>
+**DO NOT PUT SECRETS IN GIT!**
 
-    <section class="card" aria-labelledby="tips" style="margin-top:18px;">
-      <h2 id="tips">Tips & Troubleshooting</h2>
-      <ul style="color:var(--muted);">
-        <li><strong>FFmpeg warnings:</strong> If you see pydub warnings, set FFmpeg paths in code:
-          <pre><code>from pydub import AudioSegment
-AudioSegment.ffmpeg = r"C:\path\to\ffmpeg.exe"
-AudioSegment.ffprobe = r"C:\path\to\ffprobe.exe"</code></pre>
-        </li>
-        <li><strong>Playback on Windows:</strong> use <code>os.startfile(path)</code> to open MP3s with the default player.</li>
-        <li><strong>API keys:</strong> keep <code>config.py</code> out of version control (add to <code>.gitignore</code>).</li>
-      </ul>
-    </section>
+Create a file named `.env` (or `config.py` if you prefer, but make sure it's in `.gitignore`) with the following content:
 
-    <footer>
-      <div>📄 <strong>License:</strong> MIT</div>
-      <div class="right">⭐ Fork, tweak, and make Nebula your own</div>
-    </footer>
-  </main>
-</body>
-</html>
+```
+GROQ_API_KEY=your_groq_api_key
+GEMINI_API_KEY=your_gemini_api_key
+ELEVENLABS_API_KEY=your_elevenlabs_api_key
+```
+
+Or, if using `config.py`:
+```python
+groq_api_key = "your_groq_api_key"
+gemini_api_key = "your_gemini_api_key"
+elevenlabs_api_key = "your_elevenlabs_api_key"
+```
+
+### 4. Run the application
+
+```sh
+python main.py
+```
+
+Or run individual modules for testing:
+
+```sh
+python text_to_speech.py
+python speech_to_text.py
+python tools.py
+```
+
+## Notes
+
+- Make sure your webcam and microphone are connected and accessible.
+- For Windows users, FFmpeg path must be set correctly in the code.
+- All secret keys must be kept out of version control.
+
+## File Structure
+
+```
+dora/
+├── ai_agent.py
+├── config.py         # (should NOT be committed)
+├── main.py
+├── requirements.txt
+├── speech_to_text.py
+├── test.py
+├── text_to_speech.py
+├── tools.py
+├── .gitignore
+└── README.md
+```
+
+## License
+
+MIT License
+
+---
+
+**Never commit your API keys or secrets to
