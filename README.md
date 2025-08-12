@@ -1,85 +1,154 @@
-Nebula is an AI-powered voice assistant that listens, thinks, and talks back—fast.
-It combines Groq for lightning-speed speech recognition, ElevenLabs for lifelike voice synthesis, and Gradio for a sleek, interactive UI.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nebula — Voice-powered AI Sidekick</title>
+  <style>
+    :root{
+      --bg:#0b1020; --card:#0f1724; --accent:#ff7a18; --muted:#9aa4b2; --glass: rgba(255,255,255,0.03);
+      --radius:12px; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      color-scheme: dark;
+    }
+    html,body{height:100%; margin:0; background:linear-gradient(180deg,#05060a 0%, #081025 100%); color:#e6eef6;}
+    .container{max-width:980px; margin:36px auto; padding:28px; background:linear-gradient(180deg,var(--card), rgba(15,23,36,0.9)); border-radius:16px; box-shadow:0 10px 30px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.02);}
+    header{display:flex; gap:16px; align-items:center;}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffb26b); display:flex; align-items:center; justify-content:center; font-weight:700; color:#082022; font-size:20px;}
+    h1{margin:0; font-size:28px;}
+    p.lead{color:var(--muted); margin-top:6px;}
+    .badges{margin-left:auto; display:flex; gap:8px; align-items:center;}
+    .badge{font-size:12px; padding:6px 8px; background:var(--glass); border-radius:999px; color:var(--muted); border:1px solid rgba(255,255,255,0.02);}
+    section{margin-top:20px;}
+    .grid{display:grid; grid-template-columns:1fr 260px; gap:18px;}
+    .card{background:rgba(255,255,255,0.02); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.02);}
+    ul.feature-list{list-style:none; padding:0; margin:6px 0 0 0;}
+    ul.feature-list li{padding:8px 0; border-bottom:1px dashed rgba(255,255,255,0.02); color: #e6eef6;}
+    pre{background:#071826; padding:14px; border-radius:10px; overflow:auto; color:#d7f0ff;}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; font-size:13px;}
+    .highlight{background:linear-gradient(90deg, rgba(255,122,24,0.08), rgba(255,178,107,0.03)); padding:6px 10px; border-radius:8px; display:inline-block; color:var(--accent); font-weight:600;}
+    footer{margin-top:24px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; align-items:center;}
+    .right{color:var(--muted)}
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr; }
+      .badges{display:none;}
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main">
+    <header>
+      <div class="logo">NB</div>
+      <div>
+        <h1>Nebula — Voice-powered AI Sidekick</h1>
+        <p class="lead">A witty, realtime voice assistant powered by Groq (STT), ElevenLabs (TTS), and Gradio (UI).</p>
+      </div>
+      <div class="badges">
+        <div class="badge">Python</div>
+        <div class="badge">Groq</div>
+        <div class="badge">ElevenLabs</div>
+        <div class="badge">Gradio</div>
+      </div>
+    </header>
 
-Whether you’re asking questions, telling jokes, or just chatting, Nebula makes every conversation fun, smooth, and futuristic.
+    <section class="grid" aria-labelledby="about">
+      <article class="card" id="about">
+        <h2 style="margin-top:0;">What is Nebula?</h2>
+        <p class="muted" style="color:var(--muted); margin:6px 0 12px;">
+          Nebula listens to your voice, transcribes it with <strong>Groq</strong>, replies via an AI agent, and speaks back using <strong>ElevenLabs</strong>. The interface is built with <strong>Gradio</strong>, featuring a live webcam and chat pane for an immersive, realtime experience.
+        </p>
 
-✨ Features
-🎙 Speech-to-Text — Powered by Groq’s whisper-large-v3 for accurate, real-time transcription.
+        <h3>Main highlights</h3>
+        <ul class="feature-list" aria-label="features">
+          <li><strong>Speech-to-text:</strong> Groq — whisper-large-v3 (low latency)</li>
+          <li><strong>Text-to-speech:</strong> ElevenLabs — natural, multi-lingual voices</li>
+          <li><strong>UI:</strong> Gradio with webcam feed + chat window</li>
+          <li><strong>Playback:</strong> MP3 via default system player or ffplay/ffmpeg fallback</li>
+        </ul>
+      </article>
 
-🗣 Natural Voice Output — ElevenLabs turns text into silky-smooth speech.
+      <aside class="card" aria-labelledby="tech">
+        <h3 id="tech">Tech Stack</h3>
+        <p class="muted">Clean, focused stack for fast prototyping and great UX.</p>
+        <ul style="padding-left:14px; margin-top:8px; color:var(--muted);">
+          <li><strong>Python</strong> — core logic</li>
+          <li><strong>Groq API</strong> — speech-to-text (whisper-large-v3)</li>
+          <li><strong>ElevenLabs</strong> — text-to-speech</li>
+          <li><strong>Gradio</strong> — frontend UI with webcam</li>
+          <li><strong>FFmpeg</strong> — audio conversion & playback</li>
+        </ul>
 
-📸 Live Webcam — Chat with a visual connection.
+        <h4 style="margin-top:12px;">Quick stats</h4>
+        <p><span class="highlight">Realtime</span> • <span class="highlight">Low latency</span> • <span class="highlight">Multimodal</span></p>
+      </aside>
+    </section>
 
-💬 Interactive UI — Built with Gradio for a responsive, user-friendly interface.
+    <section class="card" aria-labelledby="install" style="margin-top:18px;">
+      <h2 id="install">Installation</h2>
+      <ol style="margin:10px 0 0 18px; color:var(--muted);">
+        <li>Clone repo:
+          <pre><code>git clone https://github.com/yourusername/nebula.git
+cd nebula</code></pre>
+        </li>
+        <li>Install Python dependencies:
+          <pre><code>pip install -r requirements.txt</code></pre>
+        </li>
+        <li>Install FFmpeg:
+          <pre><code>Windows: download from ffmpeg.org and add to PATH
+macOS: brew install ffmpeg
+Linux: sudo apt install ffmpeg</code></pre>
+        </li>
+        <li>Create <code>config.py</code> in the project root:
+          <pre><code>groq_api_key = "YOUR_GROQ_API_KEY"
+elevenlabs_api_key = "YOUR_ELEVENLABS_API_KEY"</code></pre>
+        </li>
+      </ol>
+    </section>
 
-⚡ Low Latency — Near-instant speech recognition and playback.
+    <section class="card" aria-labelledby="usage" style="margin-top:18px;">
+      <h2 id="usage">Usage</h2>
+      <p style="color:var(--muted); margin-top:6px;">Run Nebula locally and open the Gradio UI to start chatting by voice.</p>
 
-🛠 Tech Stack
-Technology	Purpose
-Python	Core application logic
-Groq Whisper	Speech-to-text processing
-ElevenLabs TTS	Text-to-speech synthesis
-Gradio	Web-based interface with webcam & chat
-FFmpeg	Audio playback
+      <pre><code>python nebula.py</code></pre>
 
-📦 Installation
-Clone the repo
+      <h4 style="margin-top:8px;">UI actions</h4>
+      <ul style="color:var(--muted);">
+        <li><strong>Start camera</strong> — enable webcam feed</li>
+        <li><strong>Speak</strong> — Nebula listens and transcribes</li>
+        <li><strong>Chat</strong> — text chat shown on the right panel</li>
+        <li><strong>Stop</strong> — say “goodbye” or close the UI</li>
+      </ul>
+    </section>
 
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/nebula.git
-cd nebula
-Install dependencies
+    <section class="card" aria-labelledby="examples" style="margin-top:18px;">
+      <h2 id="examples">Examples</h2>
+      <p style="color:var(--muted); margin-bottom:10px;">Example commands and behavior.</p>
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Install FFmpeg
+      <pre><code>// casual
+You: "Hey Nebula, tell me a joke."
+Nebula: (speaks) "Why did the coder get kicked out of school? Because he kept breaking the class!"
 
-Windows — Download here & add to PATH
+// informational
+You: "Nebula, summarize this article."
+Nebula: (responds with a short summary, then reads it aloud)</code></pre>
+    </section>
 
-macOS —
+    <section class="card" aria-labelledby="tips" style="margin-top:18px;">
+      <h2 id="tips">Tips & Troubleshooting</h2>
+      <ul style="color:var(--muted);">
+        <li><strong>FFmpeg warnings:</strong> If you see pydub warnings, set FFmpeg paths in code:
+          <pre><code>from pydub import AudioSegment
+AudioSegment.ffmpeg = r"C:\path\to\ffmpeg.exe"
+AudioSegment.ffprobe = r"C:\path\to\ffprobe.exe"</code></pre>
+        </li>
+        <li><strong>Playback on Windows:</strong> use <code>os.startfile(path)</code> to open MP3s with the default player.</li>
+        <li><strong>API keys:</strong> keep <code>config.py</code> out of version control (add to <code>.gitignore</code>).</li>
+      </ul>
+    </section>
 
-bash
-Copy
-Edit
-brew install ffmpeg
-Linux —
-
-bash
-Copy
-Edit
-sudo apt install ffmpeg
-Set up API keys
-Create a config.py file in the project root:
-
-python
-Copy
-Edit
-groq_api_key = "YOUR_GROQ_API_KEY"
-elevenlabs_api_key = "YOUR_ELEVENLABS_API_KEY"
-▶️ Usage
-Run Nebula:
-
-bash
-Copy
-Edit
-python nebula.py
-From the Gradio interface:
-
-🎥 Start webcam
-
-🎙 Speak into your mic
-
-💬 Chat with Nebula in real time
-
-🛑 Say "goodbye" to end
-
-📸 Interface Preview
-Webcam View	Chat View
-Live video feed	Real-time conversation
-
-📜 License
-MIT License — Free to use, modify, and distribute.
+    <footer>
+      <div>📄 <strong>License:</strong> MIT</div>
+      <div class="right">⭐ Fork, tweak, and make Nebula your own</div>
+    </footer>
+  </main>
+</body>
+</html>
