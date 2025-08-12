@@ -4,35 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nebula — Voice-powered AI Sidekick</title>
-  <style>
-    :root{
-      --bg:#0b1020; --card:#0f1724; --accent:#ff7a18; --muted:#9aa4b2; --glass: rgba(255,255,255,0.03);
-      --radius:12px; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      color-scheme: dark;
-    }
-    html,body{height:100%; margin:0; background:linear-gradient(180deg,#05060a 0%, #081025 100%); color:#e6eef6;}
-    .container{max-width:980px; margin:36px auto; padding:28px; background:linear-gradient(180deg,var(--card), rgba(15,23,36,0.9)); border-radius:16px; box-shadow:0 10px 30px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.02);}
-    header{display:flex; gap:16px; align-items:center;}
-    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffb26b); display:flex; align-items:center; justify-content:center; font-weight:700; color:#082022; font-size:20px;}
-    h1{margin:0; font-size:28px;}
-    p.lead{color:var(--muted); margin-top:6px;}
-    .badges{margin-left:auto; display:flex; gap:8px; align-items:center;}
-    .badge{font-size:12px; padding:6px 8px; background:var(--glass); border-radius:999px; color:var(--muted); border:1px solid rgba(255,255,255,0.02);}
-    section{margin-top:20px;}
-    .grid{display:grid; grid-template-columns:1fr 260px; gap:18px;}
-    .card{background:rgba(255,255,255,0.02); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.02);}
-    ul.feature-list{list-style:none; padding:0; margin:6px 0 0 0;}
-    ul.feature-list li{padding:8px 0; border-bottom:1px dashed rgba(255,255,255,0.02); color: #e6eef6;}
-    pre{background:#071826; padding:14px; border-radius:10px; overflow:auto; color:#d7f0ff;}
-    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; font-size:13px;}
-    .highlight{background:linear-gradient(90deg, rgba(255,122,24,0.08), rgba(255,178,107,0.03)); padding:6px 10px; border-radius:8px; display:inline-block; color:var(--accent); font-weight:600;}
-    footer{margin-top:24px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; align-items:center;}
-    .right{color:var(--muted)}
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr; }
-      .badges{display:none;}
-    }
-  </style>
+ 
 </head>
 <body>
   <main class="container" role="main">
