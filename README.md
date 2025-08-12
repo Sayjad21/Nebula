@@ -1,6 +1,6 @@
-# Dora AI Assistant
+# Nebula AI Assistant
 
-Dora is a multimodal AI assistant that supports:
+Nebula is a multimodal AI assistant that supports:
 - Text-to-speech (TTS) using ElevenLabs and Google gTTS
 - Speech-to-text (STT) using Groq
 - Image analysis using Groq Vision models
@@ -19,8 +19,8 @@ Dora is a multimodal AI assistant that supports:
 ### 1. Clone the repository
 
 ```sh
-git clone https://github.com/yourusername/dora.git
-cd dora
+git clone https://github.com/yourusername/Nebula.git
+cd Nebula
 ```
 
 ### 2. Install dependencies
@@ -77,7 +77,7 @@ python tools.py
 ## File Structure
 
 ```
-dora/
+Nebula/
 ├── ai_agent.py
 ├── config.py         # (should NOT be committed)
 ├── main.py
